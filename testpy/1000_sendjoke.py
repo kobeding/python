@@ -34,8 +34,8 @@ def send_mail(to_list,name,sub,content):
 	#msg['To'] = _format_addr('管理员 <%s>' % to_list)
 	try:  
 		server = smtplib.SMTP(mail_host,25)             #实例化 
-		server.set_debuglevel(1)      
-		server.connect(mail_host)           #连接smtp服务器
+		#server.set_debuglevel(1)      
+		#server.connect(mail_host)           #连接smtp服务器
 		server.login(mail_user,mail_pass)   #登陆服务器
 		server.sendmail(me,to_list,msg.as_string()) #发送邮件
 		server.close()  
@@ -43,15 +43,15 @@ def send_mail(to_list,name,sub,content):
 	except Exception as e:  
 		print (str(e))  
 		return False
-#appkey = "198fe9800deca7f123beff5489fdd069"
-appkey = "13dc980e9286ff2da40d9abc2214d98a"
+appkey = "198fe9800deca7f123beff5489fdd069"
+#appkey = "13dc980e9286ff2da40d9abc2214d98a"
 url = 'http://apis.baidu.com/showapi_open_bus/showapi_joke/joke_text?page=1'
 req = request.Request(url)
 req.add_header("apikey", appkey)
 with request.urlopen(req) as f:
 	content = f.read()
 	if(content):
-		print(content)
+		#print(content)
 		json_result = json.loads(content.decode('utf-8'))
 		content_list = json_result['showapi_res_body']['contentlist']
 		first_title = content_list[random.randint(0,20)]['title']
