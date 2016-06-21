@@ -64,7 +64,7 @@ with request.urlopen(req) as f:
 		#part3 = first_text[22:length]
 		#print (part1,"+",part2,"+",part3)
 		"""
-		minlen = 10000
+		minlen = 10000 
 		for item in content_list:
 			if len(item['text'])<minlen:
 				first_title = item['title']
